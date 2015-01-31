@@ -14,10 +14,10 @@
 
     <!-- Bootstrap Core CSS -->
     <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
-    <link href="./static/bootstrap/dist/css/bootstrap-theme.css" rel='stylesheet'>
+    <link href="./static/bootstrap-theme.css" rel='stylesheet'>
     <link href="./static/bootstrap-datetimepicker.css" rel='stylesheet'>
     <link href="./static/bootflat.min.css" rel='stylesheet'>
-    <link href="css/bootstrap-slider.css" rel="stylesheet">
+    <link href="./static/bootstrap-slider.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -30,7 +30,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <style>
-         #map-canvas { height: 100% }
+         #map-canvas { height: 600px; width: 100%; }
     </style>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
     <!--
@@ -39,17 +39,34 @@
     </script>
     -->
     <script>
-        var map;
-        function initialize() {
-          var mapOptions = {
-            zoom: 8,
-            center: new google.maps.LatLng(-34.397, 150.644)
-          };
-          map = new google.maps.Map(document.getElementById('map-canvas'),
-              mapOptions);
+        /*
+        function initialize(places) {
+            var map;
+            var mapOptions = {
+                zoom: 8,
+                //center: new google.maps.LatLng(-34.397, 150.644)
+                center: new google.maps.LatLng(-25.363882,131.044922)
+            };
+            map = new google.maps.Map(document.getElementById('map-canvas'),
+                mapOptions);
+        
+            for (var i = 0; i < places.length; i++) {
+                var table = places[i];
+                var title = table.title;
+                var laytitude = table.location.laytitude;
+                var longtitude = table.location.longtitude;
+                console.log(title, laytitude, longtitude);
+
+                var myLatlng = 
+                var marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(laytitude,longtitude);,
+                    map: map,
+                    title: title
+                });
+            }
         }
-        google.maps.event.addDomListener(window, 'load', initialize);
-    });
+        //google.maps.event.addDomListener(window, 'load', initialize);
+        */
     </script>
 </head>
 
@@ -78,9 +95,9 @@
         <!-- /.container -->
     </nav>
 
-    <div class="container">
+    <div class="container content-div">
         <div class="row clearfix">
-            <div class="col-md-8 column">
+            <div class="col-md-8 column search-div">
                 <form class="form-horizontal" role="form">
                     <div class="form-group">
                          <label for="inputEmail3" class="col-sm-2 control-label">用餐時間</label>
@@ -204,10 +221,32 @@
     <script type="text/javascript" src="./static/bootstrap/js/transition.js"></script>
     <script type="text/javascript" src="./static/bootstrap/js/collapse.js"></script>
     <script type="text/javascript" src="./static/bootstrap/dist/bootstrap.min.js"></script>
-    <script type='text/javascript' src="js/bootstrap-slider.js"></script>
+    <script type='text/javascript' src="./js/bootstrap-slider.js"></script>
     <script type="text/javascript">
+
+    function initializeGoogleMap(places) {
+        var mapOptions = {
+            zoom: 8,
+            //center: new google.maps.LatLng(-34.397, 150.644)
+            center: new google.maps.LatLng(-25.363882,131.044922)
+        };
+        var map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
+    
+        for (var i = 0; i < places.length; i++) {
+            var table = places[i];
+            var title = table.title;
+            var laytitude = table.location.laytitude;
+            var longtitude = table.location.longtitude;
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(laytitude,longtitude),
+                map: map,
+                title: title
+            });
+        }    }
+
     $(function(){
-        //$("#ex2").slider({});
+        $("#ex2").slider({});
         //var slider = new Slider('#ex2', {});
 
         var betadata = [
@@ -233,8 +272,8 @@
                 datetime: 140002024294.10240,
                 location: {
                     address: '台北市中山北路一段1號4樓',
-                    laytitude:100.00,
-                    longtitude: 100.000
+                    laytitude: -25.363882,
+                    longtitude: 131.044922
                 },
                 description: '來吃就對了',
                 smoking: false,
@@ -252,6 +291,10 @@
             },
             datetime: 140002024294.10240
         }
+
+        var data = betadata;
+        initializeGoogleMap(data);
+
     });
     </script>
 
