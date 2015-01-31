@@ -5,8 +5,9 @@
  */
 
 body {
-    background: url(../static/background.jpg) no-repeat center center;
+    background: url(../static/background.jpg) no-repeat;
     background-size: cover;
+    background-position: 0px -100px;
 }
 html {
     width: 100%;
