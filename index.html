@@ -51,6 +51,10 @@
                     <li>
                         <a class="navbar-specific" href="#services">登入</a>
                     </li>
+                    <li>
+                        <a class="navbar-specific" href="#apply" data-toggle="modal" data-target="#exampleModal">發起新開伙</a>
+                    </li>
+
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -144,6 +148,103 @@
             </div>
         </div>
     </footer>
+
+    <div class="modal fade bs-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="exampleModalLabel">立刻開團開伙揪大家吃飯</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label col-sm-2 col-lg-2 " for="id_char_field">這頓飯的名稱</label>
+                            <div class=" col-sm-10 col-lg-10 ">
+                                <input class=" form-control" id="id_char_field" name="char_field" type="text" placeholder="為你的這頓飯取個美麗的名稱吧" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2 col-lg-2 " for="id_textarea">描述一下這頓飯</label>
+                            <div class=" col-sm-10 col-lg-10 ">
+                                <textarea class=" form-control" cols="40" id="id_textarea" name="textarea" rows="10"  placeholder="有相關的敘述請填入">
+                                </textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2 col-lg-2 " for="id_char_field">這段飯的舉辦地點</label>
+                            <div class=" col-sm-10 col-lg-10 ">
+                                <input class=" form-control" id="id_char_field" name="char_field" type="text" placeholder="這段飯的地點" />
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2 col-lg-2 " for="id_char_field">這段飯的舉辦時間</label>
+                            <div class=" col-sm-10 col-lg-10 ">
+                                <input class=" form-control" id="id_char_field" name="char_field" type="text" placeholder="這段飯的時間" />
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2 col-lg-2 " for="id_choice_field">邀請幾位賓客共同用餐</label>
+                            <div class=" col-sm-10 col-lg-10 ">
+                                <select class=" form-control" id="id_choice_field" name="choice_field">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2 col-lg-2 " for="id_textarea">列出這頓飯的餐點</label>
+                            <div class=" col-sm-10 col-lg-10 ">
+                                <textarea class=" form-control" cols="40" id="id_textarea" name="textarea" rows="10"  placeholder="把你的菜單列在這">
+                                </textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2 col-lg-2 " for="id_char_field">一位賓客所需的費用</label>
+                            <div class=" col-sm-10 col-lg-10 ">
+                                <input class=" form-control" id="id_char_field" name="char_field" type="text" placeholder="要花多少摳摳" />
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2 col-lg-2 " for="id_multiple_checkbox">餐桌的規矩</label>
+                            <div class=" col-sm-10 col-lg-10 multiple-checkbox">
+                                <label for="id_multiple_checkbox_0"><input id="mcboxWine" name="mcboxWine" type="checkbox" value="optWine" /> 可開酒</label>
+                                <label for="id_multiple_checkbox_1"><input id="mcboxPet" name="mcboxPet" type="checkbox" value="optPet" /> 可帶寵物</label>
+                                <label for="id_multiple_checkbox_2"><input id="mcboxSmoke" name="mcboxSmoke" type="checkbox" value="optSmoke" /> 可抽菸</label>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2 col-lg-2 " for="id_file_fied">上傳一張用餐環境的照片</label>
+                            <div class=" col-sm-10 col-lg-10 ">
+                                <input id="id_file_fied" name="file_fied" type="file" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">開飯啦</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
