@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+
+    <title>蹭飯</title>
+
+    <!-- Bootstrap Core CSS -->
+    <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="./static/bootstrap/dist/css/bootstrap-theme.css" rel='stylesheet'>
+    <link href="./static/bootstrap-datetimepicker.css" rel='stylesheet'>
+    <link href="./static/bootflat.min.css" rel='stylesheet'>
+    <link href="css/bootstrap-slider.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+         #map-canvas { height: 100% }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+    <!--
+    <script type="text/javascript"
+      src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDkciOoE9T4_FPeRrlEzbkv60Xn3Ok759A&sensor=true">
+    </script>
+    -->
+    <script>
+        var map;
+        function initialize() {
+          var mapOptions = {
+            zoom: 8,
+            center: new google.maps.LatLng(-34.397, 150.644)
+          };
+          map = new google.maps.Map(document.getElementById('map-canvas'),
+              mapOptions);
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+    });
+    </script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar transparent" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <p class="navbar-brand" href="#">蹭飯</p>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="navbar-specific" href="#services">註冊</a>
+                    </li>
+                    <li>
+                        <a class="navbar-specific" href="#services">登入</a>
+                    </li>   
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-md-8 column">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                         <label for="inputEmail3" class="col-sm-2 control-label">用餐時間</label>
+                        <div class=" form-inline col-sm-10">
+                            <input type="email" class="form-control" id="inputEmail3" />
+                            <input type="email" class="form-control" id="inputEmail3" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                         <label for="inputEmail3" class="col-sm-2 control-label">人數 </label>
+                        <div class="col-sm-10">
+                            <select class="form-control"  id="selectAttendance">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                         <label for="inputEmail3" class="col-sm-2 control-label">餐點類型</label>
+                        <div class=" form-inline col-sm-10">
+                            <label class="checkbox-inline">
+                              <input type="checkbox" id="inlineCheckbox1" value="option1"> 家常菜
+                            </label>
+                            <label class="checkbox-inline">
+                              <input type="checkbox" id="inlineCheckbox2" value="option2"> 泰式料理
+                            </label>
+                            <label class="checkbox-inline">
+                              <input type="checkbox" id="inlineCheckbox3" value="option3"> 日式料理
+                            </label>
+                            <label class="checkbox-inline">
+                              <input type="checkbox" id="inlineCheckbox3" value="option3"> 美式料理
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                         <label for="inputEmail3" class="col-sm-2 control-label">
+                            價格範圍
+                         </label>
+                        <div class=" form-inline col-sm-10">
+                            <b>50</b>
+                            <input id="ex2" type="text" class="span2" value="" data-slider-min="50" data-slider-max="5000" data-slider-step="5" data-slider-value="[250,450]"/>
+                            <b>5000</b>
+                        </div>
+                    </div>
+                    <div class="form-group" style="display:none">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            
+                        </div>
+                    </div>
+                </form>
+                <div class="row resultdiv">
+                    <div class="col-md-6">
+                        <div class="thumbnail">
+                            <img alt="300x200" src="http://lorempixel.com/600/200/people" />
+                            <div class="caption">
+                                <h3>
+                                    Thumbnail label
+                                </h3>
+                                <p>
+                                    Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="thumbnail">
+                            <img alt="300x200" src="http://lorempixel.com/600/200/city" />
+                            <div class="caption">
+                                <h3>
+                                    Thumbnail label
+                                </h3>
+                                <p>
+                                    Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="thumbnail">
+                            <img alt="300x200" src="http://lorempixel.com/600/200/sports" />
+                            <div class="caption">
+                                <h3>
+                                    Thumbnail label
+                                </h3>
+                                <p>
+                                    Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 column">
+                <div id="map-canvas">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                    <p class="copyright text-muted small">Developed by 飯飯之交</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./static/jquery.min.js"></script>
+    <script type="text/javascript" src="./static/moment.js"></script>
+    <script type="text/javascript" src="./static/bootstrap-datetimepicker.min.js"></script>
+
+    <script type="text/javascript" src="./static/bootstrap/js/transition.js"></script>
+    <script type="text/javascript" src="./static/bootstrap/js/collapse.js"></script>
+    <script type="text/javascript" src="./static/bootstrap/dist/bootstrap.min.js"></script>
+    <script type='text/javascript' src="js/bootstrap-slider.js"></script>
+    <script type="text/javascript">
+    $(function(){
+        //$("#ex2").slider({});
+        //var slider = new Slider('#ex2', {});
+
+        var betadata = [
+            {
+                title: '5566下廚了',
+                price: 5566,
+                host: {
+                    name: '5566',
+                    contact: '0912345678',
+                    thumbnail: null
+                },
+                available: 6,
+                menu: [
+                    {
+                        name: '黯然銷魂飯',
+                        thumbnail: null
+                    },
+                    {
+                        name: '砸碎面',
+                        thumbnail: null
+                    }
+                ],
+                datetime: 140002024294.10240,
+                location: {
+                    address: '台北市中山北路一段1號4樓',
+                    laytitude:100.00,
+                    longtitude: 100.000
+                },
+                description: '來吃就對了',
+                smoking: false,
+                pet: false,
+                wine: true,
+                thumbnail: null
+            }
+        ];
+
+        var betarequest = {
+            attendance: 2,
+            price: {
+                lb: 50,
+                ub: 350
+            },
+            datetime: 140002024294.10240
+        }
+    });
+    </script>
+
+</body>
+
+</html>
